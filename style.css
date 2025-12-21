@@ -45,6 +45,299 @@ body::before {
     opacity: 0.3;
 }
 
+/* ===== EFEITOS DE BRILHO QUE FALTAM ===== */
+
+.hero-badge {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.hero-roles {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.hero-roles span {
+    color: var(--charcoal-gray);
+    font-size: 1.2rem;
+}
+
+.hero-mission {
+    font-size: 1.3rem;
+    color: var(--charcoal-gray);
+    font-style: italic;
+    margin: 1.5rem 0;
+}
+
+.hero-name {
+    background: linear-gradient(135deg, var(--graphite-gray), var(--charcoal-gray));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Elementos Disney */
+.disney-sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: disneySparkle 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.sparkle-2 {
+    top: 60%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.sparkle-3 {
+    bottom: 30%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+@keyframes disneySparkle {
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0.8) rotate(0deg);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+/* Moldura Vintage */
+.vintage-frame {
+    position: relative;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.vintage-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--charcoal-gray);
+    border-radius: 8px;
+    opacity: 0.3;
+    transform: scale(1.05);
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--charcoal-gray), transparent);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.vintage-name {
+    background: linear-gradient(135deg, var(--graphite-gray), var(--charcoal-gray));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Ornamentos */
+.vintage-ornament {
+    width: 80px;
+    height: 80px;
+    margin: 2rem auto;
+    background: 
+        radial-gradient(circle, var(--silver-sparkle) 0%, transparent 70%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="none" stroke="gray" stroke-width="2"/></svg>');
+    opacity: 0.6;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Botões Vintage */
+.btn-vintage {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--charcoal-gray);
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-vintage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--silver-sparkle), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-vintage:hover::before {
+    left: 100%;
+}
+
+.btn-vintage:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.15),
+        0 0 0 1px var(--charcoal-gray);
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+}
+
+/* Bordas Decorativas */
+.vintage-border {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--charcoal-gray), 
+        var(--silver-sparkle), 
+        var(--charcoal-gray), 
+        transparent);
+    opacity: 0.4;
+}
+
+.top-border {
+    top: 20%;
+}
+
+.bottom-border {
+    bottom: 20%;
+}
+
+/* Prompt de Scroll */
+.scroll-prompt {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Tipografia Vintage */
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--charcoal-gray);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+}
+
+.vintage-tagline {
+    font-size: 1.1rem;
+    color: var(--graphite-gray);
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* Partículas de Brilho */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.magic-particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: floatParticle 6s infinite linear;
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Brilhos mágicos (para o JavaScript) */
+.brilho-magico {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--silver-sparkle) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 999;
+    animation: brilhoAnim 1s ease-out forwards;
+}
+
+.brilho-prateado {
+    background: radial-gradient(circle, var(--silver-sparkle) 0%, transparent 70%);
+}
+
+@keyframes brilhoAnim {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Efeitos de Brilho gerais */
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, var(--silver-sparkle) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.glow-effect:hover::after {
+    opacity: 0.3;
+}
+
 /* ===== MENU HAMBÚRGUER FUNCIONAL ===== */
 
 /* Botão hambúrguer (sempre oculto inicialmente) */
