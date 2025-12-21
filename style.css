@@ -45,253 +45,46 @@ body::before {
     opacity: 0.3;
 }
 
-.hero-badge {
-    background: rgba(255,255,255,0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    backdrop-filter: blur(10px);
-}
+/* ===== MENU HAMBÚRGUER FUNCIONAL ===== */
 
-.hero-roles {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-}
-
-.hero-roles span {
-    color: var(--charcoal-gray);
-    font-size: 1.2rem;
-}
-
-.hero-mission {
-    font-size: 1.3rem;
-    color: var(--charcoal-gray);
-    font-style: italic;
-    margin: 1.5rem 0;
-}
-
-.hero-name {
-    background: linear-gradient(135deg, var(--graphite-gray), var(--charcoal-gray));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Elementos Disney */
-.disney-sparkle {
-    position: absolute;
-    font-size: 1.5rem;
-    opacity: 0;
-    animation: disneySparkle 3s ease-in-out infinite;
-}
-
-.sparkle-1 {
-    top: 20%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.sparkle-2 {
-    top: 60%;
-    right: 20%;
-    animation-delay: 1s;
-}
-
-.sparkle-3 {
-    bottom: 30%;
-    left: 25%;
-    animation-delay: 2s;
-}
-
-@keyframes disneySparkle {
-    0%, 100% { 
-        opacity: 0; 
-        transform: scale(0.8) rotate(0deg);
-    }
-    50% { 
-        opacity: 0.7; 
-        transform: scale(1.2) rotate(180deg);
-    }
-}
-
-/* Moldura Vintage */
-.vintage-frame {
-    position: relative;
-    padding: 2rem;
-    margin: 2rem 0;
-}
-
-.vintage-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+/* Botão hambúrguer (sempre oculto inicialmente) */
+#mobile-menu {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(254, 254, 254, 0.98);
     border: 2px solid var(--charcoal-gray);
     border-radius: 8px;
-    opacity: 0.3;
-    transform: scale(1.05);
+    padding: 12px 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    width: 50px;
+    height: 50px;
 }
 
-.title-underline {
-    width: 100px;
+.hamburger {
+    width: 25px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--charcoal-gray), transparent);
-    margin: 1rem auto;
+    background-color: var(--graphite-gray);
+    margin: 5px auto;
+    transition: 0.4s;
     border-radius: 2px;
+    display: block;
 }
 
-.vintage-name {
-    background: linear-gradient(135deg, var(--graphite-gray), var(--charcoal-gray));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: 'Playfair Display', serif;
+/* Animação do hambúrguer para "X" */
+#mobile-menu.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-/* Ornamentos */
-.vintage-ornament {
-    width: 80px;
-    height: 80px;
-    margin: 2rem auto;
-    background: 
-        radial-gradient(circle, var(--silver-sparkle) 0%, transparent 70%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="none" stroke="gray" stroke-width="2"/></svg>');
-    opacity: 0.6;
-    animation: float 4s ease-in-out infinite;
+#mobile-menu.active .hamburger:nth-child(2) {
+    opacity: 0;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-}
-
-/* Botões Vintage */
-.btn-vintage {
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--charcoal-gray);
-    background: rgba(255, 255, 255, 0.9);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn-vintage::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--silver-sparkle), transparent);
-    transition: left 0.6s ease;
-}
-
-.btn-vintage:hover::before {
-    left: 100%;
-}
-
-.btn-vintage:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 8px 25px rgba(0,0,0,0.15),
-        0 0 0 1px var(--charcoal-gray);
-}
-
-.btn-icon {
-    margin-right: 0.5rem;
-}
-
-/* Bordas Decorativas */
-.vintage-border {
-    position: absolute;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        var(--charcoal-gray), 
-        var(--silver-sparkle), 
-        var(--charcoal-gray), 
-        transparent);
-    opacity: 0.4;
-}
-
-.top-border {
-    top: 20%;
-}
-
-.bottom-border {
-    bottom: 20%;
-}
-
-/* Prompt de Scroll */
-.scroll-prompt {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    opacity: 0.7;
-    animation: bounce 2s infinite;
-}
-
-.scroll-arrow {
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
-}
-
-/* Tipografia Vintage */
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--charcoal-gray);
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    letter-spacing: 2px;
-    margin: 1rem 0;
-}
-
-.vintage-tagline {
-    font-size: 1.1rem;
-    color: var(--graphite-gray);
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-}
-/* Partículas de Brilho */
-.particles-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.magic-particle {
-    position: absolute;
-    border-radius: 50%;
-    animation: float 6s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+#mobile-menu.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* ===== MENU ELEGANTE ANOS 50 ===== */
@@ -305,6 +98,7 @@ nav {
     z-index: 1000;
     border-bottom: 1px solid var(--stone-gray);
     box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
 }
 
 nav ul {
@@ -416,6 +210,7 @@ nav ul li a:hover::before {
         linear-gradient(135deg, var(--pearl-white) 0%, var(--silver-mist) 100%),
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(140,140,140,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     position: relative;
+    padding-top: 80px;
 }
 
 .hero::after {
@@ -894,40 +689,6 @@ h2::after {
         var(--silver-sparkle) 50%,
         transparent 100%);
 }
- 
-/* Responsividade para Áreas do Conhecimento */
-@media (max-width: 768px) {
-    .areas-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-   
-    .áreasdoconhecimento h2 {
-        font-size: 2rem;
-    }
-   
-    .card-image {
-        height: 150px;
-    }
-   
-    .card-content {
-        padding: 1.2rem;
-    }
-   
-    .card-content h3 {
-        font-size: 1.1rem;
-    }
-}
- 
-@media (max-width: 480px) {
-    .areas-grid {
-        grid-template-columns: 1fr;
-    }
-   
-    .áreasdoconhecimento {
-        padding: 3rem 1rem;
-    }
-}
 
 /* ===== SEÇÃO SERVIÇOS ===== */
 .servicos {
@@ -1203,1260 +964,240 @@ footer a:hover::after {
     width: 100%;
 }
 
-/* ===== EFEITOS DE BRILHO ===== */
-.glow-effect {
-    position: relative;
-}
+/* ============================================
+   RESPONSIVIDADE PARA CELULAR - MENU HAMBÚRGUER
+   ============================================ */
 
-.glow-effect::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, var(--silver-sparkle) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.glow-effect:hover::after {
-    opacity: 0.3;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.2rem;
+/* Para telas menores que 768px */
+@media screen and (max-width: 768px) {
+    /* Mostra o botão hambúrguer */
+    #mobile-menu {
+        display: block !important;
     }
     
-    .sobre-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    /* Esconde o menu original */
+    nav > ul {
+        display: none !important;
     }
     
-    .projeto {
-        grid-template-columns: 1fr;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .botoes {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .minha-foto {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .servicos-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .formacao-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .servico-item, .vaga-item {
-        padding: 1rem;
-    }
-    
-    .contato {
-        padding: 3rem 1rem;
-    }
-    
-    .formacao-item, .servico-item, .vaga-item {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
+    /* Menu lateral que desliza */
     nav {
-        padding: 1rem;
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: rgba(254, 254, 254, 0.99) !important;
+        backdrop-filter: blur(20px) !important;
+        z-index: 9999 !important;
+        padding: 80px 25px 30px 25px !important;
+        transition: left 0.4s ease !important;
+        overflow-y: auto !important;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15) !important;
+        border-right: 1px solid var(--slate-gray) !important;
+        margin: 0 !important;
+    }
+    
+    /* Menu aberto */
+    nav.menu-aberto {
+        left: 0 !important;
+    }
+    
+    /* Mostra a lista dentro do menu aberto */
+    nav.menu-aberto > ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Estilos dos itens do menu mobile */
+    nav ul li {
+        width: 100% !important;
+        margin: 8px 0 !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(214, 214, 214, 0.5) !important;
+        padding-bottom: 12px !important;
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none !important;
     }
     
     nav ul li a {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-}
-
-
-/* ===== PÁGINAS INTERNAS - ESTILO ANOS 50 ===== */
-
-/* Hero para páginas internas */
-.hero-interna {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, var(--pearl-white) 0%, var(--silver-mist) 100%);
-    position: relative;
-    margin-top: 80px;
-}
-
-.hero-interna::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--charcoal-gray) 50%, transparent 100%);
-    opacity: 0.3;
-}
-
-.hero-line {
-    width: 100px;
-    height: 1px;
-    background: var(--charcoal-gray);
-    margin: 2rem auto;
-    opacity: 0.5;
-}
-
-/* Container principal */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Conteúdo da natureza */
-.conteudo-natureza {
-    padding: 5rem 0;
-    background: rgba(255, 255, 255, 0.7);
-}
-
-.texto-introdutorio {
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    text-align: center;
-}
-
-.texto-introdutorio h2 {
-    color: var(--graphite-gray);
-    margin-bottom: 1.5rem;
-    font-family: 'Georgia', serif;
-}
-
-.texto-introdutorio p {
-    color: var(--charcoal-gray);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.reflexao-pessoal {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2.5rem;
-    border-radius: 15px;
-    margin-top: 2rem;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-.reflexao-pessoal h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-family: 'Georgia', serif;
-}
-
-/* Galeria de trabalhos */
-.galeria-trabalhos {
-    margin: 4rem 0;
-}
-
-.galeria-trabalhos h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.subtitulo-galeria {
-    text-align: center;
-    color: var(--charcoal-gray);
-    margin-bottom: 3rem;
-    font-style: italic;
-}
-
-.grid-trabalhos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2rem;
-}
-
-.item-trabalho {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.8);
-}
-
-.item-trabalho:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-}
-
-.trabalho-imagem-container {
-    position: relative;
-    overflow: hidden;
-    height: 400px;
-}
-
-.trabalho-imagem {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-}
-
-.trabalho-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.trabalho-imagem-container:hover .trabalho-overlay {
-    opacity: 1;
-}
-
-.trabalho-imagem-container:hover .trabalho-imagem {
-    transform: scale(1.05);
-}
-
-.btn-ver-mais {
-    color: white;
-    background: rgba(255,255,255,0.2);
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    border: 1px solid rgba(255,255,255,0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-ver-mais:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.trabalho-info {
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.trabalho-info h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 0.5rem;
-    font-family: 'Georgia', serif;
-}
-
-.trabalho-info p {
-    color: var(--charcoal-gray);
-    line-height: 1.6;
-}
-
-/* Seção de aprendizados */
-.aprendizados-section {
-    margin: 5rem 0;
-}
-
-.aprendizados-section h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.grid-aprendizados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.card-aprendizado {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-}
-
-.card-aprendizado:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-}
-
-.aprendizado-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.card-aprendizado h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 1rem;
-    font-family: 'Georgia', serif;
-}
-
-.card-aprendizado p {
-    color: var(--charcoal-gray);
-    line-height: 1.6;
-}
-
-/* Botão voltar */
-.voltar-areas {
-    text-align: center;
-    margin-top: 4rem;
-}
-
-.btn-voltar {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--graphite-gray);
-    text-decoration: none;
-    border-radius: 25px;
-    border: 1px solid var(--slate-gray);
-    transition: all 0.3s ease;
-    font-family: 'Georgia', serif;
-}
-
-.btn-voltar:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 2001;
-}
-
-.modal-close:hover {
-    color: #ccc;
-}
-
-.modal-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    text-align: center;
-    background: rgba(0,0,0,0.7);
-    padding: 1rem 2rem;
-    border-radius: 25px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero-interna {
-        min-height: 50vh;
-        margin-top: 70px;
+        display: block !important;
+        padding: 14px 16px !important;
+        font-size: 1.1rem !important;
+        width: 100% !important;
+        color: var(--graphite-gray) !important;
+        border-radius: 10px !important;
+        border: 1px solid transparent !important;
+        background: rgba(255, 255, 255, 0.7) !important;
+        margin: 2px 0 !important;
+        text-decoration: none !important;
     }
     
-    .grid-trabalhos {
-        grid-template-columns: 1fr;
+    nav ul li a:hover {
+        background: rgba(90, 90, 90, 0.05) !important;
+        border-color: var(--slate-gray) !important;
     }
     
-    .trabalho-imagem-container {
-        height: 300px;
+    /* Dropdown no mobile */
+    .dropdown-content {
+        position: static !important;
+        display: none !important;
+        background: rgba(248, 248, 248, 0.95) !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        padding-left: 15px !important;
+        margin: 10px 0 5px 0 !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(214, 214, 214, 0.5) !important;
     }
     
-    .reflexao-pessoal {
-        padding: 1.5rem;
+    .dropdown-content a {
+        padding: 12px 16px !important;
+        font-size: 1rem !important;
+        border-bottom: 1px solid rgba(214, 214, 214, 0.3) !important;
     }
     
-    .grid-aprendizados {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===== ESTILOS ESPECÍFICOS PARA CANVA ===== */
-
-.canva-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    height: 100%;
-}
-
-.canva-link:hover .canva-overlay {
-    opacity: 1;
-}
-
-.canva-link:hover .canva-imagem {
-    transform: scale(1.02);
-}
-
-/* Botão de ação do Canva */
-.canva-acao {
-    text-align: center;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.5);
-}
-
-.btn-canva {
-    display: inline-block;
-    padding: 1.2rem 2.5rem;
-    background: linear-gradient(135deg, #979b72, #b3ae7a);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 194, 204, 0.3);
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-.btn-canva:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(199, 198, 168, 0.4);
-    background: linear-gradient(135deg, #7b765e, #b1ae9e);
-}
-
-.canva-nota {
-    margin-top: 0.8rem;
-    color: var(--charcoal-gray);
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
-/* Overlay do Canva atualizado */
-.canva-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(117, 115, 86, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.btn-ver-mais {
-    color: white;
-    background: rgba(255,255,255,0.2);
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    border: 1px solid rgba(255,255,255,0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-}
-
-.btn-ver-mais:hover {
-    background: rgba(255,255,255,0.3);
-    transform: scale(1.05);
-}
-
-/* Ajustes para a imagem do Canva */
-.canva-imagem {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--silver-mist), var(--cloud-gray));
-}
-
-/* ===== PÁGINA LINGUAGENS ===== */
-
-.conteudo-linguagens {
-    padding: 5rem 0;
-    background: rgba(255, 255, 255, 0.7);
-}
-
-/* Processo Criativo */
-.processo-criativo {
-    margin: 4rem 0;
-}
-
-.processo-criativo h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.timeline-processo {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.timeline-processo::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--silver-sparkle), var(--charcoal-gray));
-    opacity: 0.3;
-}
-
-.etapa-processo {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2.5rem;
-    position: relative;
-}
-
-.etapa-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--pearl-white), var(--cloud-gray));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--graphite-gray);
-    border: 2px solid var(--silver-sparkle);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-right: 2rem;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-}
-
-.etapa-content {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    flex: 1;
-    transition: all 0.3s ease;
-}
-
-.etapa-content:hover {
-    transform: translateX(5px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-}
-
-.etapa-content h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 0.8rem;
-    font-family: 'Georgia', serif;
-}
-
-.etapa-content p {
-    color: var(--charcoal-gray);
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Ajustes para os destaques específicos de Linguagens */
-.destaques-trabalho .destaque-item h4 {
-    font-size: 1.1rem;
-}
-
-/* Botão do Canva com cores diferentes para Linguagens */
-.btn-canva {
-    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-}
-
-.btn-canva:hover {
-    background: linear-gradient(135deg, #ff8e53, #ff6b6b);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-}
-
-/* Overlay com cor temática para Linguagens */
-.canva-overlay {
-    background: rgba(255, 107, 107, 0.8);
-}
-
-/* Responsividade para o processo criativo */
-@media (max-width: 768px) {
-    .timeline-processo::before {
-        left: 25px;
+    .dropdown-content a:last-child {
+        border-bottom: none !important;
     }
     
-    .etapa-icon {
-        width: 50px;
-        height: 50px;
-        margin-right: 1.5rem;
-        font-size: 0.9rem;
+    .dropdown.aberto .dropdown-content {
+        display: block !important;
     }
     
-    .etapa-content {
-        padding: 1.2rem;
+    /* Ajustes de conteúdo */
+    .hero {
+        padding-top: 100px !important;
+        padding: 60px 20px !important;
     }
     
-    .etapa-processo {
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .timeline-processo::before {
-        display: none;
+    .hero-content h1 {
+        font-size: 2.2rem !important;
     }
     
-    .etapa-processo {
-        flex-direction: column;
-        text-align: center;
+    .hero-content p {
+        font-size: 1.1rem !important;
     }
     
-    .etapa-icon {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-}
-
-
-/* ===== PÁGINA PROJETO DE VIDA ===== */
-
-.conteudo-projeto-vida {
-    padding: 5rem 0;
-    background: rgba(255, 255, 255, 0.7);
-}
-
-/* Reflexão sobre Projeto de Vida */
-.reflexao-projeto-vida {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 3rem;
-    border-radius: 15px;
-    margin-bottom: 4rem;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-
-.reflexao-projeto-vida h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--graphite-gray);
-}
-
-.reflexao-content p {
-    color: var(--charcoal-gray);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.aprendizados-vida {
-    background: rgba(248, 248, 248, 0.8);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-    border-left: 4px solid var(--silver-sparkle);
-}
-
-.aprendizados-vida h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 1.5rem;
-    font-family: 'Georgia', serif;
-}
-
-.aprendizados-vida ul {
-    list-style: none;
-    padding: 0;
-}
-
-.aprendizados-vida li {
-    color: var(--charcoal-gray);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.aprendizados-vida li::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
-    color: var(--silver-sparkle);
-}
-
-/* Projeto do Ano */
-.projeto-ano-section {
-    margin-bottom: 4rem;
-}
-
-.projeto-ano-section h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--graphite-gray);
-}
-
-.projeto-destaque {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 3rem;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-
-.projeto-apresentacao {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.projeto-apresentacao h3 {
-    color: var(--graphite-gray);
-    margin-bottom: 1rem;
-    font-family: 'Georgia', serif;
-}
-
-.projeto-apresentacao p {
-    color: var(--charcoal-gray);
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Experiência Pessoal */
-.experiencia-pessoal {
-    margin: 4rem 0;
-}
-
-.experiencia-pessoal h3 {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    color: var(--graphite-gray);
-}
-
-.experiencia-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.experiencia-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.experiencia-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--silver-sparkle);
-    transition: height 0.4s ease;
-}
-
-.experiencia-card:hover::before {
-    height: 100%;
-}
-
-.experiencia-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-
-.exp-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.experiencia-card h4 {
-    color: var(--graphite-gray);
-    margin-bottom: 1rem;
-    font-family: 'Georgia', serif;
-}
-
-.experiencia-card p {
-    color: var(--charcoal-gray);
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Impacto e Aprendizados */
-.impacto-section {
-    margin: 4rem 0;
-}
-
-.impacto-section h3 {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    color: var(--graphite-gray);
-}
-
-.impacto-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.impacto-texto p {
-    color: var(--charcoal-gray);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.habilidades-desenvolvidas h4 {
-    color: var(--graphite-gray);
-    margin-bottom: 1.5rem;
-    font-family: 'Georgia', serif;
-}
-
-.habilidades-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.habilidade-tag {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    border: 1px solid var(--slate-gray);
-    color: var(--charcoal-gray);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.habilidade-tag:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Botão do SenaMUN com cores diferentes */
-.btn-canva {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
-
-.btn-canva:hover {
-    background: linear-gradient(135deg, #764ba2, #667eea);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-/* Overlay com cor temática para SenaMUN */
-.canva-overlay {
-    background: rgba(102, 126, 234, 0.8);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .reflexao-projeto-vida,
-    .projeto-destaque {
-        padding: 2rem;
+    .sobre-content {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
     }
     
-    .experiencia-grid {
-        grid-template-columns: 1fr;
+    .botoes {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
     }
     
-    .impacto-content {
-        grid-template-columns: 1fr;
+    .minha-foto {
+        width: 200px !important;
+        height: 200px !important;
     }
     
-    .habilidades-list {
-        justify-content: center;
+    .servicos-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
     
-    .aprendizados-vida {
-        padding: 1.5rem;
+    .formacao-grid {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+    
+    .projeto-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .projeto {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .projeto-imagem {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .formulario-contato {
+        padding: 20px !important;
+    }
+    
+    footer {
+        text-align: center !important;
+        padding: 20px 10px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Evita scroll horizontal */
+    * {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
     }
 }
 
-@media (max-width: 480px) {
-    .reflexao-projeto-vida,
-    .projeto-destaque {
-        padding: 1.5rem;
+/* Para telas menores que 480px */
+@media screen and (max-width: 480px) {
+    #mobile-menu {
+        top: 15px !important;
+        right: 15px !important;
+        padding: 10px !important;
     }
     
-    .habilidade-tag {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+    nav {
+        width: 85% !important;
+    }
+    
+    nav ul li a {
+        font-size: 1rem !important;
+        padding: 10px 12px !important;
+    }
+    
+    .projeto-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .btn, .github-btn {
+        padding: 12px 20px !important;
+        font-size: 16px !important;
+        display: block !important;
+        margin: 10px auto !important;
+        width: 90% !important;
+    }
+    
+    h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    h3 {
+        font-size: 1.4rem !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem !important;
     }
 }
 
-/* ============================================
-   MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS
-   ============================================ */
-
-/* Para telas menores que 768px (Tablets e Celulares) */
-@media screen and (max-width: 768px) {
-  
-  /* 1. AJUSTES GERAIS DO SITE */
-  body {
-    font-size: 14px; /* Texto um pouco menor para telas pequenas */
-    padding: 0 10px; /* Adiciona um pequeno espaçamento nas laterais */
-  }
-
-  /* 2. MENU DE NAVEGAÇÃO (O MAIS IMPORTANTE!) */
-  nav ul {
-    flex-direction: column; /* Coloca os itens do menu em coluna */
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  nav ul li {
-    margin: 8px 0; /* Espaço entre os itens do menu */
-    width: 100%; /* Faz cada item ocupar toda a largura */
-    text-align: center;
-  }
-
-    /* ============================================
-   MENU HAMBÚRGUER PARA CELULAR
-   ============================================ */
-
-/* Para telas menores que 768px (Celulares e Tablets) */
-@media screen and (max-width: 768px) {
-  
-  /* 1. Esconde o menu original */
-  nav ul {
-    display: none;
-  }
-  
-  /* 2. Container do hambúrguer */
-  .menu-toggle {
-    display: block !important;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid var(--charcoal-gray);
-    border-radius: 5px;
-    padding: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-  
-  .hamburger {
-    width: 25px;
-    height: 3px;
-    background-color: var(--graphite-gray);
-    margin: 5px 0;
-    transition: 0.4s;
-    border-radius: 2px;
-    display: block;
-  }
-  
-  /* 3. Menu que desliza da esquerda */
-  nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100vh;
-    background: rgba(254, 254, 254, 0.98);
-    backdrop-filter: blur(15px);
-    z-index: 1000;
-    padding: 80px 20px 20px;
-    transition: left 0.5s ease;
-    overflow-y: auto;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-    border-right: 1px solid var(--slate-gray);
-  }
-  
-  /* Mostra o menu quando ativo */
-  nav.active {
-    left: 0;
-  }
-  
-  /* Mostra a lista dentro do menu */
-  nav.active ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 0;
-  }
-  
-  nav ul li {
-    width: 100%;
-    margin: 5px 0;
-    text-align: left;
-    border-bottom: 1px solid rgba(90, 90, 90, 0.1);
-    padding-bottom: 10px;
-  }
-  
-  nav ul li:last-child {
-    border-bottom: none;
-  }
-  
-  nav ul li a {
-    display: block;
-    padding: 12px 15px;
-    font-size: 1.1rem;
-    width: 100%;
-    color: var(--graphite-gray);
-    border-radius: 8px;
-    border: none;
-    background: transparent;
-    margin: 0;
-  }
-  
-  nav ul li a:hover {
-    background: rgba(90, 90, 90, 0.05);
-  }
-  
-  /* 4. Dropdown no mobile */
-  .dropdown-content {
-    position: static;
-    display: none;
-    background: rgba(248, 248, 248, 0.95);
-    width: 100%;
-    box-shadow: none;
-    padding-left: 20px;
-    margin-top: 5px;
-    border-radius: 8px;
-  }
-  
-  .dropdown-content a {
-    padding: 10px 15px;
-    font-size: 1rem;
-  }
-  
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-  
-  /* 5. Animação do hambúrguer para "X" */
-  .menu-toggle.active .hamburger:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-    background-color: var(--graphite-gray);
-  }
-  
-  .menu-toggle.active .hamburger:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active .hamburger:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-    background-color: var(--graphite-gray);
-  }
-  
-  /* 6. Ajustes para o conteúdo não ficar atrás do menu */
-  .hero {
-    margin-top: 0;
-    padding-top: 100px;
-  }
-  
-  /* Evita scroll horizontal */
-  * {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-  
-  body {
-    overflow-x: hidden;
-  }
-}
-
-/* Para telas maiores (Desktop) - Esconde o botão hambúrguer */
+/* Para telas maiores - Esconde hambúrguer e mostra menu normal */
 @media screen and (min-width: 769px) {
-  .menu-toggle {
-    display: none !important;
-  }
-}
-
-/* Para telas menores que 480px (Celulares pequenos) */
-@media screen and (max-width: 480px) {
-  .menu-toggle {
-    top: 15px;
-    right: 15px;
-    padding: 10px;
-  }
-  
-  nav {
-    width: 85%;
-  }
-  
-  nav ul li a {
-    font-size: 1rem;
-    padding: 10px 12px;
-  }
-}
-  
-  .dropdown-content {
-    position: static; /* Muda o dropdown para fluxo normal */
-    display: none; /* Esconde por padrão */
-    width: 100%;
-    box-shadow: none;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block; /* Mostra quando clicar (precisa de JS para funcionar bem) */
-  }
-
-  /* 3. SEÇÃO PRINCIPAL (HERO) */
-  .hero {
-    padding: 60px 20px; /* Reduz o padding */
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 2rem; /* Título menor */
-  }
-  
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  /* 4. SOBRE MIM - Organiza texto e imagem */
-  .sobre-content {
-    flex-direction: column; /* Coloca texto e imagem em coluna */
-  }
-  
-  .foto-perfil {
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  .minha-foto {
-    max-width: 250px; /* Imagem menor */
-    height: auto;
-  }
-
-  /* 5. GRADE DE FORMAÇÃO - 1 coluna */
-  .formacao-grid {
-    grid-template-columns: 1fr; /* Apenas 1 coluna */
-    gap: 25px;
-  }
-
-  /* 6. GRADE DE PROJETOS - 2 colunas */
-  .projeto-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    gap: 15px;
-  }
-
-  /* 7. CONQUISTAS - Organiza em coluna */
-  .projeto {
-    flex-direction: column; /* Imagem acima, texto abaixo */
-    text-align: center;
-  }
-  
-  .projeto-imagem {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
-  }
-
-  /* 8. SERVIÇOS - Coloca as colunas em pilha */
-  .servicos-container {
-    flex-direction: column;
-  }
-  
-  .servicos-col, .vagas-col {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  /* 9. FORMULÁRIO DE CONTATO */
-  .formulario-contato {
-    padding: 20px;
-  }
-
-  /* 10. RODAPÉ */
-  footer {
-    text-align: center;
-    padding: 20px 10px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Para telas menores que 480px (Celulares pequenos) */
-@media screen and (max-width: 480px) {
-  /* 1. GRADE DE PROJETOS - 1 coluna */
-  .projeto-grid {
-    grid-template-columns: 1fr; /* Apenas 1 coluna */
-  }
-  
-  /* 2. BOTÕES - deixa maiores para toque */
-  .btn, .github-btn {
-    padding: 12px 20px;
-    font-size: 16px;
-    display: block; /* Um botão embaixo do outro */
-    margin: 10px auto;
-    width: 90%; /* Ocupa quase toda a largura */
-  }
-  
-  .botoes {
-    flex-direction: column; /* Botões em coluna */
-    align-items: center;
-  }
-  
-  /* 3. TÍTULOS menores */
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  h3 {
-    font-size: 1.4rem;
-  }
+    #mobile-menu {
+        display: none !important;
+    }
+    
+    nav > ul {
+        display: flex !important;
+    }
 }
