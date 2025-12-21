@@ -2168,6 +2168,180 @@ footer a:hover::after {
     width: 100%; /* Faz cada item ocupar toda a largura */
     text-align: center;
   }
+
+    /* ============================================
+   MENU HAMBÚRGUER PARA CELULAR
+   ============================================ */
+
+/* Para telas menores que 768px (Celulares e Tablets) */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Esconde o menu original */
+  nav ul {
+    display: none;
+  }
+  
+  /* 2. Container do hambúrguer */
+  .menu-toggle {
+    display: block !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--charcoal-gray);
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: var(--graphite-gray);
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+    display: block;
+  }
+  
+  /* 3. Menu que desliza da esquerda */
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(254, 254, 254, 0.98);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 80px 20px 20px;
+    transition: left 0.5s ease;
+    overflow-y: auto;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid var(--slate-gray);
+  }
+  
+  /* Mostra o menu quando ativo */
+  nav.active {
+    left: 0;
+  }
+  
+  /* Mostra a lista dentro do menu */
+  nav.active ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(90, 90, 90, 0.1);
+    padding-bottom: 10px;
+  }
+  
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    width: 100%;
+    color: var(--graphite-gray);
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    margin: 0;
+  }
+  
+  nav ul li a:hover {
+    background: rgba(90, 90, 90, 0.05);
+  }
+  
+  /* 4. Dropdown no mobile */
+  .dropdown-content {
+    position: static;
+    display: none;
+    background: rgba(248, 248, 248, 0.95);
+    width: 100%;
+    box-shadow: none;
+    padding-left: 20px;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  /* 5. Animação do hambúrguer para "X" */
+  .menu-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: var(--graphite-gray);
+  }
+  
+  .menu-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: var(--graphite-gray);
+  }
+  
+  /* 6. Ajustes para o conteúdo não ficar atrás do menu */
+  .hero {
+    margin-top: 0;
+    padding-top: 100px;
+  }
+  
+  /* Evita scroll horizontal */
+  * {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Para telas maiores (Desktop) - Esconde o botão hambúrguer */
+@media screen and (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Para telas menores que 480px (Celulares pequenos) */
+@media screen and (max-width: 480px) {
+  .menu-toggle {
+    top: 15px;
+    right: 15px;
+    padding: 10px;
+  }
+  
+  nav {
+    width: 85%;
+  }
+  
+  nav ul li a {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+}
   
   .dropdown-content {
     position: static; /* Muda o dropdown para fluxo normal */
