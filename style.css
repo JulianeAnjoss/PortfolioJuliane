@@ -2142,3 +2142,147 @@ footer a:hover::after {
         padding: 0.4rem 0.8rem;
     }
 }
+
+/* ============================================
+   MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS
+   ============================================ */
+
+/* Para telas menores que 768px (Tablets e Celulares) */
+@media screen and (max-width: 768px) {
+  
+  /* 1. AJUSTES GERAIS DO SITE */
+  body {
+    font-size: 14px; /* Texto um pouco menor para telas pequenas */
+    padding: 0 10px; /* Adiciona um pequeno espaçamento nas laterais */
+  }
+
+  /* 2. MENU DE NAVEGAÇÃO (O MAIS IMPORTANTE!) */
+  nav ul {
+    flex-direction: column; /* Coloca os itens do menu em coluna */
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  nav ul li {
+    margin: 8px 0; /* Espaço entre os itens do menu */
+    width: 100%; /* Faz cada item ocupar toda a largura */
+    text-align: center;
+  }
+  
+  .dropdown-content {
+    position: static; /* Muda o dropdown para fluxo normal */
+    display: none; /* Esconde por padrão */
+    width: 100%;
+    box-shadow: none;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block; /* Mostra quando clicar (precisa de JS para funcionar bem) */
+  }
+
+  /* 3. SEÇÃO PRINCIPAL (HERO) */
+  .hero {
+    padding: 60px 20px; /* Reduz o padding */
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2rem; /* Título menor */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  /* 4. SOBRE MIM - Organiza texto e imagem */
+  .sobre-content {
+    flex-direction: column; /* Coloca texto e imagem em coluna */
+  }
+  
+  .foto-perfil {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .minha-foto {
+    max-width: 250px; /* Imagem menor */
+    height: auto;
+  }
+
+  /* 5. GRADE DE FORMAÇÃO - 1 coluna */
+  .formacao-grid {
+    grid-template-columns: 1fr; /* Apenas 1 coluna */
+    gap: 25px;
+  }
+
+  /* 6. GRADE DE PROJETOS - 2 colunas */
+  .projeto-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 15px;
+  }
+
+  /* 7. CONQUISTAS - Organiza em coluna */
+  .projeto {
+    flex-direction: column; /* Imagem acima, texto abaixo */
+    text-align: center;
+  }
+  
+  .projeto-imagem {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  /* 8. SERVIÇOS - Coloca as colunas em pilha */
+  .servicos-container {
+    flex-direction: column;
+  }
+  
+  .servicos-col, .vagas-col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  /* 9. FORMULÁRIO DE CONTATO */
+  .formulario-contato {
+    padding: 20px;
+  }
+
+  /* 10. RODAPÉ */
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Para telas menores que 480px (Celulares pequenos) */
+@media screen and (max-width: 480px) {
+  /* 1. GRADE DE PROJETOS - 1 coluna */
+  .projeto-grid {
+    grid-template-columns: 1fr; /* Apenas 1 coluna */
+  }
+  
+  /* 2. BOTÕES - deixa maiores para toque */
+  .btn, .github-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    display: block; /* Um botão embaixo do outro */
+    margin: 10px auto;
+    width: 90%; /* Ocupa quase toda a largura */
+  }
+  
+  .botoes {
+    flex-direction: column; /* Botões em coluna */
+    align-items: center;
+  }
+  
+  /* 3. TÍTULOS menores */
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+}
